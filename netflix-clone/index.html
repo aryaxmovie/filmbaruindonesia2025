@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>filmbaruindonesia2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo futuristic-logo">filmbaruindonesia2025</div>
+      <nav class="nav">
+        <input type="text" id="movieSearchInput" placeholder="Search movie titles..." style="margin-right: 20px; padding: 5px 10px; border-radius: 4px; border: none; outline: none; font-size: 14px; background-color: #222; color: #fff; box-shadow: 0 0 10px rgba(229, 9, 20, 0.7);" />
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Movies</a>
+        <a href="https://www.tiktok.com/@filmbaruindonesia2025" class="nav-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok</a>
+      </nav>
+    </header>
+
+  <main class="main-content">
+    <section class="featured-video">
+      <h1 class="featured-title">DEAR NATHAN</h1>
+      <div class="video-container">
+        <iframe
+          src="https://iframe.mediadelivery.net/play/466914/cf0a5bf5-fa68-4de0-b682-718399e5a02e"
+          frameborder="0"
+          allowfullscreen
+          allow="autoplay; fullscreen"
+          title="Featured Video"
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="featured-video">
+      <h1 class="featured-title">Alibii.com</h1>
+      <div class="video-container">
+        <iframe
+          src="https://iframe.mediadelivery.net/play/466914/fe3ac779-5a9e-4c38-9130-05adfb21ee0e"
+          frameborder="0"
+          allowfullscreen
+          allow="autoplay; fullscreen"
+          title="Alibii.com Video"
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="movie-search-section">
+      <ul id="movieList" class="movie-list" style="margin-top: 40px;">
+        <li class="movie-item">dear nathan</li>
+        <li class="movie-item">alibii.com</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© Web Milik filmbaruindonesia2025.</p>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('movieSearchInput');
+    const movieList = document.getElementById('movieList');
+    const movies = movieList.getElementsByTagName('li');
+
+    searchInput.addEventListener('input', function() {
+      const filter = searchInput.value.toUpperCase();
+      for (let i = 0; i < movies.length; i++) {
+        const title = movies[i].textContent || movies[i].innerText;
+        if (title.toUpperCase().indexOf(filter) > -1) {
+          movies[i].style.display = "";
+        } else {
+          movies[i].style.display = "none";
+        }
+      }
+    });
+
+    // Navigate to movie page on movie title click
+    for (let i = 0; i < movies.length; i++) {
+      movies[i].style.cursor = 'pointer';
+      movies[i].addEventListener('click', () => {
+        const title = movies[i].textContent.trim();
+        let pageUrl = '';
+        if (title.toLowerCase() === 'dear nathan') {
+          pageUrl = 'DEAR_NATHAN.html';
+        } else if (title.toLowerCase() === 'alibii.com') {
+          pageUrl = 'Alibii_com.html';
+        }
+        if (pageUrl) {
+          window.location.href = pageUrl;
+        }
+      });
+    }
+
+    // Navigate to movie page on Enter key press in search input
+    searchInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        const inputValue = searchInput.value.trim();
+        let pageUrl = '';
+        // Build a map of movie titles to page URLs dynamically
+        const movieMap = {};
+        for (let i = 0; i < movies.length; i++) {
+          const title = movies[i].textContent.trim();
+          // Convert title to a safe filename by replacing spaces and dots with underscores
+          const fileName = title.replace(/[\s\.]/g, '_') + '.html';
+          movieMap[title] = fileName;
+        }
+        const lowerInput = inputValue.toLowerCase();
+        const lowerMovieMap = {};
+        for (const key in movieMap) {
+          lowerMovieMap[key.toLowerCase()] = movieMap[key];
+        }
+        if (lowerMovieMap[lowerInput]) {
+          pageUrl = lowerMovieMap[lowerInput];
+        }
+        if (pageUrl) {
+          window.location.href = pageUrl;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
