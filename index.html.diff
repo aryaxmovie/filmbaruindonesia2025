@@ -1,0 +1,86 @@
+<section class="featured-video">
+      <h1 class="featured-title">DEAR NATHAN</h1>
+      <div class="video-container">
+        <iframe
+          src="https://iframe.mediadelivery.net/play/466914/cf0a5bf5-fa68-4de0-b682-718399e5a02e"
+          frameborder="0"
+          allowfullscreen
+          allow="autoplay; fullscreen"
+          title="Featured Video"
+        ></iframe>
+      </div>
+    </section>
+  </main>
+=======
+  <main class="main-content">
+    <section class="featured-video">
+      <h1 class="featured-title">DEAR NATHAN</h1>
+      <div class="video-container">
+        <iframe
+          src="https://iframe.mediadelivery.net/play/466914/cf0a5bf5-fa68-4de0-b682-718399e5a02e"
+          frameborder="0"
+          allowfullscreen
+          allow="autoplay; fullscreen"
+          title="Featured Video"
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="movie-search-section">
+      <input type="text" id="movieSearchInput" placeholder="Search movie titles..." />
+      <ul id="movieList" class="movie-list">
+        <li class="movie-item"><a href="DEAR_NATHAN.html">DEAR NATHAN</a></li>
+        <li class="movie-item"><a href="THE_GREAT_ESCAPE.html">THE GREAT ESCAPE</a></li>
+        <li class="movie-item"><a href="INCEPTION.html">INCEPTION</a></li>
+        <li class="movie-item"><a href="INTERSTELLAR.html">INTERSTELLAR</a></li>
+        <li class="movie-item"><a href="THE_DARK_KNIGHT.html">THE DARK KNIGHT</a></li>
+        <li class="movie-item"><a href="FORREST_GUMP.html">FORREST GUMP</a></li>
+        <li class="movie-item"><a href="THE_MATRIX.html">THE MATRIX</a></li>
+        <li class="movie-item"><a href="GLADIATOR.html">GLADIATOR</a></li>
+      </ul>
+    </section>
+  </main>
+>>>>>>> REPLACE
+=======
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('movieSearchInput');
+    const movieList = document.getElementById('movieList');
+    const movies = movieList.getElementsByTagName('li');
+
+    searchInput.addEventListener('input', function() {
+      const filter = searchInput.value.toUpperCase();
+      for (let i = 0; i < movies.length; i++) {
+        const title = movies[i].textContent || movies[i].innerText;
+        if (title.toUpperCase().indexOf(filter) > -1) {
+          movies[i].style.display = "";
+        } else {
+          movies[i].style.display = "none";
+        }
+      }
+    });
+
+    // Navigate to movie page on movie title click
+    for (let i = 0; i < movies.length; i++) {
+      movies[i].style.cursor = 'pointer';
+      movies[i].addEventListener('click', () => {
+        const title = movies[i].textContent.trim();
+        // Convert title to a safe filename by replacing spaces and dots with underscores
+        const pageUrl = title.replace(/[\s\.]/g, '_') + '.html';
+        window.location.href = pageUrl;
+      });
+    }
+
+    // Navigate to movie page on Enter key press in search input
+    searchInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        const inputValue = searchInput.value.trim();
+        // Convert input to a safe filename by replacing spaces and dots with underscores
+        const pageUrl = inputValue.replace(/[\s\.]/g, '_') + '.html';
+        window.location.href = pageUrl;
+      }
+    });
+  </script>
+</body>
+</html>
