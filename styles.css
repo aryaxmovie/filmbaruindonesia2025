@@ -24,7 +24,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid #ff0000;
   box-shadow: 0 0 15px #00ffff88;
 }
 
@@ -295,4 +295,24 @@ body {
     font-size: 13px;
     padding: 18px 12px;
   }
+}
+
+/* Favorite icon styles */
+.favorite-icon {
+  cursor: pointer;
+  color: #888888;
+  font-size: 18px;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.favorite-icon:hover {
+  color: #ff4d4d;
+  text-shadow: 0 0 5px #ff4d4d;
+}
+
+.favorite-icon.favorited {
+  color: #ff0000;
+  text-shadow: 0 0 8px #ff0000, 0 0 15px #ff0000;
 }
