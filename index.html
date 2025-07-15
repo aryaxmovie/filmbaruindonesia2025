@@ -71,12 +71,26 @@
       </div>
     </section>
 
+    <section class="featured-video">
+      <h1 class="featured-title">PENYALIN CAHAYA</h1>
+      <div class="video-container">
+        <iframe
+          src="https://iframe.mediadelivery.net/play/466914/e161bd8e-c4f2-4221-a5cb-236958138004"
+          frameborder="0"
+          allowfullscreen
+          allow="autoplay; fullscreen"
+          title="Penyalin Cahaya Video"
+        ></iframe>
+      </div>
+    </section>
+
     <section class="movie-search-section">
       <ul id="movieList" class="movie-list" style="margin-top: 40px;">
         <li class="movie-item">dear nathan</li>
         <li class="movie-item">alibii.com</li>
         <li class="movie-item">jagat arwah</li>
         <li class="movie-item">keramat 2</li>
+        <li class="movie-item">penyalin cahaya</li>
       </ul>
     </section>
   </main>
@@ -116,6 +130,8 @@
           pageUrl = 'Jagat_arwah.html';
         } else if (title.toLowerCase() === 'keramat 2') {
           pageUrl = 'Keramat_2.html';
+        } else if (title.toLowerCase() === 'penyalin cahaya') {
+          pageUrl = 'Penyalin_Cahaya.html';
         }
         if (pageUrl) {
           window.location.href = pageUrl;
