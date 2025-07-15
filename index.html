@@ -58,11 +58,25 @@
       </div>
     </section>
 
+    <section class="featured-video">
+      <h1 class="featured-title">KERAMAT 2</h1>
+      <div class="video-container">
+        <iframe
+          src="https://iframe.mediadelivery.net/play/466914/6070329a-eb83-46f0-be81-ad4fa4bf9b76"
+          frameborder="0"
+          allowfullscreen
+          allow="autoplay; fullscreen"
+          title="Keramat 2 Video"
+        ></iframe>
+      </div>
+    </section>
+
     <section class="movie-search-section">
       <ul id="movieList" class="movie-list" style="margin-top: 40px;">
         <li class="movie-item">dear nathan</li>
         <li class="movie-item">alibii.com</li>
         <li class="movie-item">jagat arwah</li>
+        <li class="movie-item">keramat 2</li>
       </ul>
     </section>
   </main>
@@ -98,6 +112,10 @@
           pageUrl = 'DEAR_NATHAN.html';
         } else if (title.toLowerCase() === 'alibii.com') {
           pageUrl = 'Alibii_com.html';
+        } else if (title.toLowerCase() === 'jagat arwah') {
+          pageUrl = 'Jagat_arwah.html';
+        } else if (title.toLowerCase() === 'keramat 2') {
+          pageUrl = 'Keramat_2.html';
         }
         if (pageUrl) {
           window.location.href = pageUrl;
